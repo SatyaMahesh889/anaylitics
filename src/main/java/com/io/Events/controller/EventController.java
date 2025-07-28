@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.io.Events.dto.Events;
 import com.io.Events.service.EventInterface;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +26,9 @@ public class EventController {
         System.out.println("Client IP: " + clientIp);
 
         // Optionally: Set IP in DTO if needed
-        payload.setIpAddress(clientIp);
-        eventService.saveEvent(eventId, payload);
+        System.out.println(payload.getEventDTO());
+
+        eventService.saveEvent(payload);
 
     }
 
